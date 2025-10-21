@@ -1,0 +1,19 @@
+{
+  "name": "airfleet/hero-feature",
+  "title": "Hero Feature",
+  "category": "layout",
+  "icon": "layout",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": [
+      "full",
+      "wide",
+      "center"
+    ],
+    "jsx": true
+  },
+  "style": "airfleet-hero-feature"
+}
