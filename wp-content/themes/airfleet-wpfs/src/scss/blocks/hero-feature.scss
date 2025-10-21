@@ -1,0 +1,100 @@
+/* === Pixel-perfect rules for Hero Section 1 ===
+   Apply class "af-hero--fixed-1" to the first Hero block (Advanced → Additional CSS classes)
+*/
+.af-hero--fixed-1 {
+  /* Section background and fixed height */
+  background: #F5F5F5;
+  min-height: 423px;
+
+  /* Center a 1440px desktop canvas */
+  .af-hero__inner {
+    max-width: 1440px;
+    width: 1440px;
+  }
+
+  /* Typography */
+  .af-hero__headline {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1; /* 100% */
+    color: #0E0066;
+  }
+  .af-hero__sub,
+  .af-hero__summary {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1; /* 100% */
+    margin: 0; /* ensure tight caption block */
+  }
+
+  /* The left text block exact box */
+  .af-hero__text {
+    width: 463px;
+    /* Position within the 1440 canvas using margins */
+    margin-left: 220px;
+    margin-top: 47px;
+  }
+
+  /* Summary + Read more inline */
+  .af-hero__summary { display: inline; }
+  .af-hero__actions { display: inline-flex; gap: 16px; margin-left: 12px; vertical-align: baseline; }
+  .af-hero__readmore {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    color: #6455FF;
+    text-decoration: underline;
+    background: transparent; border: none; padding: 0; cursor: pointer;
+  }
+
+  /* CTA button exact sizing */
+  .af-hero__btn {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    background: #0B0058;
+    padding: 9px 18px; /* to achieve 138x36 with text; adjust if needed */
+    min-width: 138px;
+    min-height: 36px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    transition: transform .18s cubic-bezier(.2,.7,.2,1), box-shadow .18s ease;
+  }
+  .af-hero__btn:hover {
+    transform: scale(1.10);
+    box-shadow: 0 12px 28px rgba(0,0,0,.22);
+  }
+
+  /* Image on the right with exact size/position */
+  .af-hero__media {
+    @media (min-width: 1440px) {
+      /* Align right-hand column using grid and matching offsets */
+      margin-top: 47px;
+      margin-left: 757px - 220px; /* relative to inner container left */
+    }
+  }
+  .af-hero__media img {
+    width: 463px;
+    height: 329px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,.5);
+  }
+
+  /* Ensure two columns with fixed widths on desktop */
+  @media (min-width: 1440px) {
+    .af-hero__inner {
+      display: grid;
+      grid-template-columns: 463px 1fr;
+      column-gap: 74px; /* 757 - 220 - 463 = 74 gap between text box and image start */
+      align-items: start;
+    }
+    &.af-hero--text_right .af-hero__inner {
+      grid-template-columns: 1fr 463px;
+    }
+  }
+}
